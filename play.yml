@@ -1,0 +1,23 @@
+---
+
+- hosts: localhost
+  tasks:
+    - name: Test that my module works
+      github_repo:
+        github_auth_key: "{{github_token}}"
+        name: "Github-ansible-module"
+        description: "Simple example module for creating/deleting repositories"
+        private: no
+        has_issues: no
+        has_wiki: no
+        has_downloads: no
+      register: result 
+ 
+    - debug: var=result
+ 
+    #- name: Delete repo
+    #  github_repo:
+    #    github_auth_key: "{{ github_token }}"
+    #    name: "Hello-World"
+    #    state: absent
+ 
